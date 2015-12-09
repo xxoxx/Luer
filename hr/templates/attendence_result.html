@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="attendence_cal" method="post">	
+  <table class="table table-hover">
+  							
+  								   {% if department_name != 'all' %}{{ department_name }}{% endif %} {{ start_date }} 至 {{ stop_date }} 缺勤明细如下：
+									<thead>
+										<tr>
+											<th>姓名</th>
+											<th>缺勤次数</th>
+											<th>缺勤日期</th>
+
+										</tr>
+									</thead>
+									<tbody>
+						
+		{% for i in l %}
+										<tr>
+										<td>{{ i.name }}</td>
+										<td>{{ i.count }}</td>
+										<td>
+										{% for date in i.dates %}
+										| {{ date.attendence_date }}
+										{% endfor %}
+										</td>
+								
+										
+										</tr>
+	 {% endfor %}
+									</tbody>
+								</table>
+								
+								
+								
+</form>
+{% endblock %}

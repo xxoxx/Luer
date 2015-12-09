@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+		<h3 class="page-title">
+			报到单
+		</h3>
+		<ul class="page-breadcrumb breadcrumb">
+			
+			<li>
+				<i class="fa fa-home"></i>
+				<a href="/">主页</a> 
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li><a href="#"></a></li>
+		</ul>
+		<!-- END PAGE TITLE & BREADCRUMB-->
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+	<div class="portlet-body">
+							<div class="table-responsive">
+							<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>姓名</th>
+											<th>登陆名</th>
+											<th>密码</th>
+											<th>邮箱</th>
+											<th>部门</th>
+											<th>部门经理</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+									<td>{{ name }}</td>
+									<td>{{ username }}</td>
+									<td>{{ password }}</td>
+									<td>{{ email }}</td>
+									<td>{{ department }}</td>
+									<td>{{ manager }}</td>
+										</tr>
+									</tbody>
+</table>
+
+<table class="table table-hover">
+<thead>
+										<tr>
+											
+											<th>同部门员工</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+									
+									<td>
+										{% for e in employees %}
+										{{ e.name }}|
+										{% endfor %}
+									</td>
+										</tr>
+									</tbody>
+</table>
+
+<a href='/'>返回</a>
+	</div>
+	</div>
+		
+	</div>
+</div>
+{% endblock %}

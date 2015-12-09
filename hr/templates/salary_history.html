@@ -1,0 +1,42 @@
+
+
+<form action="salary_history" method="post">	
+<table class="table table-hover">
+历史薪资记录查询
+									<thead>
+										<tr>
+											<th>请选择姓名</th>
+											<th>请选择年份</th>
+											<th>请选择月份</th>
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+									<td>
+									<select name="name">
+										{% for e in employees %}
+										<option value="{{ e.name }}">{{ e.name }}</option>
+										{% endfor %}
+									</select>
+									</td>
+									<td>
+									<select name="year">
+										{% for year in years %}
+										<option value="{{ year }}">{{ year }}</option>
+										{% endfor %}
+									</select>
+									</td>
+									<td>
+									<select name="month">
+										{% for month in months %}
+										<option value="{{ month }}">{{ month }}</option>
+										{% endfor %}
+									</select>
+									</td>
+										</tr>
+									
+</table>
+<input type="submit" value="查询" />
+</form>
+

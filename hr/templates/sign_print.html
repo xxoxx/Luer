@@ -1,0 +1,26 @@
+
+
+<form action="sign_print" method="post">	
+<table class="table table-hover">
+历史薪资记录查询
+									<thead>
+										<tr>
+											<th>请选择姓名</th>
+											
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+									<td>
+									<select name="name">
+										{% for e in employees %}
+										<option value="{{ e.name }}">{{ e.name }}</option>
+										{% endfor %}
+									</select>
+									</td>
+										</tr>
+									
+</table>
+<input type="submit" value="打印" />
+</form>

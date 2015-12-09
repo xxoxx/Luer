@@ -1,0 +1,34 @@
+<form action="attendence_result_department" method="post">	
+  <table class="table table-hover">
+									<thead>
+										<tr>
+											<th>姓名</th>
+											<th>总缺勤次数</th>
+											<th>缺勤日期</th>
+											
+
+										</tr>
+									</thead>
+									<tbody>
+						
+		{% for i in l %}
+										<tr>
+										<td>{{ i.name }}</td>
+										<td>{{ i.count }}</td>
+										<td>
+										{% for date in i.dates %}
+										| {{ date.attendence_date }}
+										{% endfor %}
+										</td>
+										
+										</tr>
+	 {% endfor %}
+									</tbody>
+								</table>
+						
+								
+								 <p>起始日期: <input type="text" name="start_date" /></p>
+  								<p>终止日期: <input type="text" name="stop_date" /></p>
+  								<input type="submit" value="Submit" />
+								
+</form>

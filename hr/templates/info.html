@@ -1,0 +1,85 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+		<h3 class="page-title">
+			员工个人信息
+		</h3>
+		<ul class="page-breadcrumb breadcrumb">
+			<li class="btn-group">
+				<!-- <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+				<span>Actions</span> <i class="fa fa-angle-down"></i>
+				</button> -->
+				<ul class="dropdown-menu pull-right" role="menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</li>
+			<li>
+				<i class="fa fa-home"></i>
+				<a href="/">主页</a> 
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li><a href="#"></a></li>
+		</ul>
+		<!-- END PAGE TITLE & BREADCRUMB-->
+	</div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->          
+<div class="row">
+	<div class="col-md-12">
+	<div class="portlet-body">
+							<div class="table-responsive">
+							<form action="info" method="post">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>姓名</th>
+											<th>性别</th>
+											<th>邮箱</th>
+											{% if perms.hr.personnel_manager %}
+											<th>基本薪资</th>
+											{% endif %}
+											<th>薪资</th>
+											<th>部门</th>
+											<th>部门经理</th>
+											<th>职位</th>
+											<th>入职日期</th>
+										</tr>
+									</thead>
+									<tbody>
+		{% for e in employees %}
+		
+										<tr>
+											<td><input type="text" name="name" value="{{ e.name }}" /></td>
+											<td><input type="text" name="sex" value="{{ e.sex }}" /></td>
+											<td><input type="text" name="email" value="{{ e.email }}" /></td>
+											{% if perms.hr.personnel_manager %}
+											<td><input type="text" name="base_salary" value="{{ e.base_salary }}" /></td>
+											{% endif %}
+											<td>{{ e.base_salary|add:e.extra_salary }}</td>
+											<td><select name="department">
+												<option value="{{ e.department }}" selected="selected">{{ e.department }}</option>
+												{% for department in departments %}
+												<option value="{{ department.department_name }}">{{ department.department_name }}</option>
+												{% endfor %}
+												</select></td>
+											<td><input type="text" name="department_manager" value="{{ e.department.department_manager }}" /></td>
+											<td><input type="text" name="position" value="{{ e.position }}" /></td>
+											<td><input type="text" name="hiredate" value="{{ e.hiredate }}" /></td>
+										</tr>
+	{% endfor %}
+									</tbody>
+								</table>
+								<input type="submit" value="确定" />
+								</form>
+	</div>
+	</div>
+		
+	</div>
+</div>
+<!-- END PAGE CONTENT-->

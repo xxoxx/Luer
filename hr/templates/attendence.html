@@ -1,0 +1,27 @@
+<form action="insert_attendence" method="post">	
+  <table class="table table-hover">
+									<thead>
+										<tr>
+											<th>姓名</th>
+											<th>是否迟到早退</th>
+											<th>考勤日期</th>
+										</tr>
+									</thead>
+									<tbody>
+						
+		{% for e in employees %}
+		
+										<tr>
+										<td><input type="text" name="attendence_name" value="{{ e.name }}"/></td>
+										<td><select name="is_early_or_late">
+												<option value="1">是</option>
+												<option value="0" selected="selected">否</option></td>
+											</select>
+										<td><input type="text" name="attendence_date"/></td>
+										
+										</tr>
+	 {% endfor %}
+									</tbody>
+								</table>
+								<input type="submit" value="Submit" />
+</form>

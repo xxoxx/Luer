@@ -1,0 +1,64 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+		<h3 class="page-title">
+			员工个人信息
+		</h3>
+		<ul class="page-breadcrumb breadcrumb">
+			
+			<li>
+				<i class="fa fa-home"></i>
+				<a href="/">主页</a> 
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li><a href="#"></a></li>
+		</ul>
+		<!-- END PAGE TITLE & BREADCRUMB-->
+	</div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->          
+<div class="row">
+	<div class="col-md-12">
+	<div class="portlet-body">
+							<div class="table-responsive">
+							<form action="info_single" method="post">	
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>姓名</th>
+											<th>性别</th>
+											<th>邮箱</th>
+											<th>薪资</th>
+											<th>部门</th>
+											<th>部门经理</th>
+											<th>职位</th>
+											<th>入职日期</th>
+										</tr>
+									</thead>
+									<tbody>
+
+		
+										<tr>
+											<td>{{ request.user.employee_extra.name }}</td>
+											<td>{{ request.user.employee_extra.sex }}</td>
+											<td>{{ request.user.employee_extra.email }}</td>
+											<td>{{ request.user.employee_extra.base_salary|add:request.user.employee_extra.extra_salary }}</td>
+											<td>{{ request.user.employee_extra.department }}</td>
+											<td>{{ request.user.employee_extra.department.department_manager }}</td>
+											<td>{{ request.user.employee_extra.position }}</td>
+											<td>{{ request.user.employee_extra.hiredate }}</td>
+										</tr>
+
+									</tbody>
+								</table>
+								<input type='text' name='password' placeholder='请输入新密码...' />
+								<input type='submit' value='确认修改密码' />
+								</form>
+	</div>
+	</div>
+		
+	</div>
+</div>
+<!-- END PAGE CONTENT-->

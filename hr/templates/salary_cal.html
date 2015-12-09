@@ -1,0 +1,23 @@
+
+ {{ date }} 薪资情况如下（满勤加薪200，缺勤次数 >= 3 扣除薪资100）：
+  <table class="table table-hover">
+									<thead>
+										<tr>
+											<th>姓名</th>
+											<th>缺勤次数</th>
+											<th>本月薪资</th>
+										</tr>
+									</thead>
+									<tbody>
+						
+		{% for i in l %}
+										<tr>
+										<td>{{ i.name }}</td>
+										<td>{{ i.count }}</td>
+										<td>{{ i.salary }}</td>
+										
+										</tr>
+	 {% endfor %}
+									</tbody>
+								</table>
+								
